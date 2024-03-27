@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Questão 3">
+		<meta name="keywords" content="HTML, JavaScript">
+		<meta name="author" content="Renan">
+	</head>
+	<body>
+		<div>
+			<form>
+				<h2>getElementById</h2>
+				<input type="Text" id="input_1">
+				<button>exemplo getElementByID</button>
+				<!-- -->
+				<h2>getElementsByTagName</h2>
+				<input type="Text">
+				<br>
+				<br>
+				<input type="Text">
+				<button>exemplo getElementsByTagName</button>
+				<!-- -->
+				<h2>getElementsByClassName</h2>
+				<input type="Text" class="testeclass">
+				<br>
+				<br>
+				<input type="Text" class="testeclass">
+				<button>exemplo getElementsByClassName</button>
+				<!-- -->
+				<h2>querySelector</h2>
+				<input type="Text" id="testeqs">
+				<button>exemplo querySelector</button>
+				<!-- -->
+				<h2>querySelectorAll</h2>
+				<input type="Text" class="input">
+				<br>
+				<br>
+				<input type="Text" class="input">
+				<button>exemplo querySelectorAll</button>
+			</form>
+		</div>
+		<!-- JavaScript -->
+		<script>
+			window.onload = function() {
+				let btn = document.getElementsByTagName("button");
+				
+				btn[0].onclick = function(){  
+					let input = document.getElementById("input_1").value;
+					
+					alert("o texto digitado foi: " + input);
+				}	
+				
+				btn[1].onclick = function(){
+					let inputs = document.getElementsByTagName("input");
+					
+					alert("o texto armazenado no input[1] é: " + inputs[1].value);
+					alert("o texto armazenado no input[2] é: " + inputs[2].value);
+				}	
+				
+				btn[2].onclick = function(){    
+					let inputs = document.getElementsByClassName("testeclass");
+					
+					alert("o texto armazenado no input[0] é: " + inputs[0].value);
+					alert("o texto armazenado no input[1] é: " + inputs[1].value);
+				}	
+				
+				btn[3].onclick = function(){
+					let input = document.querySelector("#testeqs").value;
+					
+					alert("o texto digitado foi: " + input);
+				}	
+				
+				btn[4].onclick = function(){
+					event.preventDefault();     
+					let inputs = document.querySelectorAll(".input");
+					
+					alert("o texto armazenado no input[0] é: " + inputs[0].value);
+					alert("o texto armazenado no input[1] é: " + inputs[1].value);
+				}	
+			}
+		</script>
+	</body>	
+</html>
