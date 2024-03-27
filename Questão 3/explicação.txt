@@ -1,0 +1,9 @@
+getElementById() - O método "getElementById" é uma função do JavaScript que permite selecionar um elemento pelo seu ID. 
+
+getElementByTagName() - O método "getElementByTagName" é uma função do JavaScript que permite selecionar todos os elementos que tenham a mesma tag html, retornando um vetor. 
+
+getElementByClassName() - O método "getElementByClassName" é uma função do JavaScript que permite selecionar todos os elementos que tenham a mesma classe, retornando um vetor. 
+
+querySelector() - O método "querySelector" é uma função do JavaScript que permite selecionar um elemento usando seletores CSS, retornando o primeiro elemento que corresponde ao seletor. 
+
+querySelectorAll() - O método "querySelectorAll" é uma função do JavaScript que permite selecionar todos os elementos correspondentes ao seletor CSS, retornando um vetor.
