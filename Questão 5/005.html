@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Questão 5">
+		<meta name="keywords" content="HTML, JavaScript">
+		<meta name="author" content="Renan">
+	</head>
+	<body>
+		<div>
+			<div>
+				<!--Função Nomeada-->
+				<h2>Função Nomeada</h2>
+				<button>Clique aqui!</button>
+				<p></p>
+			</div>
+			<div>
+				<!--Função com Parâmetros-->
+				<h2>Função com Parâmetros</h2>
+				<h4>digite apenas números para realizar a soma.</h4>
+				<input id="numero1"></input>
+				<br><br>
+				<input id="numero2"></input>
+				<button>somar</button>
+				<p></p>
+			</div>
+			<div>
+				<!--Função com Construtor-->
+				<h2>Função com Construtor</h2>
+				<h4>digite o modelo de um carro, a cor e a marca respectivamente nos "inputs" abaixo.</h4>
+				<input id="modelo"></input>
+				<br><br>
+				<input id="cor"></input>
+				<br><br>
+				<input id="marca"></input>
+				<button>Enviar</button>
+				<p></p>
+			</div>
+			<div>
+				<!--Função Literal-->	
+				<h2>Função Literal (variável)</h2>
+				<button>Função Nomeada</button>
+				<p></p>
+			</div>
+			<div>
+				<!--Função de Flecha-->			
+				<h2>Função de Flecha (Arrow functions)</h2>
+				<button>Função Nomeada</button>
+				<p></p>
+			</div>
+		</div>
+		<!-- JavaScript -->
+		<script>
+			window.onload = function() {
+				let btn = document.getElementsByTagName("button");
+				let p = document.getElementsByTagName("p");
+				
+				btn[0].onclick = function() {
+					//Função Nomeada
+					function funcaoNomeada() {
+						p[0].innerHTML = "A função nomeada foi ativada";	
+					}
+					
+					//Chamando Função Nomeada-
+					funcaoNomeada();
+				}
+				
+				btn[1].onclick = function() {
+					let a = document.getElementById("numero1").value;
+					let b = document.getElementById("numero2").value;
+				
+					//Função Nomeada
+					function funcaoComParametro(n1, n2) {
+						return parseInt(n1) + parseInt(n2);
+					}
+					
+					//Chamando Função com parâmetros 
+					p[1].innerHTML = funcaoComParametro(a, b);
+					
+				}
+				
+				btn[2].onclick = function() {
+					let iptmodelo = document.getElementById("modelo").value;
+					let iptcor = document.getElementById("cor").value;
+					let iptmarca = document.getElementById("marca").value;
+				
+					//Função com Construtor
+					function carro(modelo, cor, marca) {
+						this.modelo = modelo;
+						this.cor = cor;
+						this.marca = marca;
+					}
+					
+					const meuCarro = new carro(iptmodelo, iptcor, iptmarca)
+					
+					//Chamando Função com Construtor
+					p[2].innerHTML = "Meu carro é o modelo: " + meuCarro.modelo + ", da marca: " + meuCarro.marca + " e é da cor: " + meuCarro.cor;
+				}
+				
+				btn[3].onclick = function() {
+					//Função Literal
+					let funcaoLiteral = function() {
+						p[3].innerHTML = "A Função Literal foi ativada";
+					}
+					
+					//Chamando Função Literal
+					funcaoLiteral();
+				}
+				
+				btn[4].onclick = function() {
+					//Arrow Function
+					let arrowFunction =()=> {
+						p[4].innerHTML = "A Arrow Function foi ativada";	
+					}
+					
+					//Chamando Arrow Function 
+					arrowFunction();
+				}
+			}
+		</script>
+	</body>
+</html>
