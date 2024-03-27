@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Questão 4">
+		<meta name="keywords" content="HTML, JavaScript">
+		<meta name="author" content="Renan">
+	</head>
+	<body>
+		<div>			
+			<!-- onsubmit -->
+			<form onsubmit="onSubmitFunction()">
+				<!-- onmouseover -->
+				<p class="on" style="background-color:#bfbfbf;" onmouseover="onMouseOverFunction()">onmouseover (passe o ponteiro do mouse por cima)</p>
+				<!-- onfocus -->
+				<p>onfocus (selecione o "input" abaixo)</p>
+				<input type="text" onfocus="onFocusFunction()"></input>
+				<!-- onchange -->
+				<p>onchange (escolha uma das opções do "select" abaixo)</p>
+				<select id="meuSelect" onchange="onChangeFunction()">
+					<option value="opção1">Opção 1</option>
+					<option value="opção2">Opção 2</option>
+					<option value="opção3">Opção 3</option>
+				</select>
+				<p>onsubmit (adicione dados no "input" abaixo e então envie clicando no botão ao lado)</p>
+				<input type="text" name="nome">
+				<button type="submit">Enviar</button>
+				<!-- onkeydown -->
+				<p>onkeydown (digite uma letra, obs: onkeydown é ativado após uma tecla ser pressionada)</p>
+				<input onkeydown="onKeyDownFunction(event)"></input>
+				<!-- onkeyup -->
+				<p>onkeyup (digite uma letra, obs: onkeydown é ativado após uma tecla ser solta)</p>
+				<input onkeyup="onKeyUpFunction(event)"></input>
+				<!-- onmouseout -->
+				<p class="on" style="background-color:#bfbfbf;" onmouseout="onMouseOutFunction()">onmouseout (tire o ponteiro do mouse de cima, obs: o evento onmouseout é ativo após o ponteiro sair do elemento)</p>
+			</form>
+			<!-- ondblclick -->
+			<p ondblclick="onDblclickFunction()">ondblclick (clique 2 vezes)</p>
+			<!-- onmousedown -->
+			<p onmousedown="onMouseDownFunction()">onmousedown (clique no elemento, obs: onmousedown é ativado após o elemento ser pressionado com o mouse)</p>
+			<!-- onmouseup -->
+			<p onmouseup="onMouseUpFunction()">onmouseup (clique no elemento, obs: onmouseup é ativado após o elemento ser solto)</p>
+		</div>
+		<!-- JavaScript -->
+		<script>
+			let input = document.getElementsByTagName("input");
+			let select = document.getElementsByTagName("select");
+			let tags = document.querySelectorAll(".on");
+			let gerarCorAleatoria = ["#ff0000", "#0000ff", "#ffff00", "#00ff00"];
+				
+			//onmouseover
+			onMouseOverFunction =()=>{	
+				let ns = Math.floor(Math.random() * 4);		
+				tags[0].style.color = gerarCorAleatoria[ns];
+				alert("OBS: o evento onmouseover está acionando a função OnMouseOverFunction, essa função troca a cor do elemento utilizando CSS");
+			}
+				
+			//onfocus
+			onFocusFunction =()=>{			
+				alert("Para evitar que o evento onfocus continue aparecendo no alert, o atributo foi removido, recarregue a página para utilizar o evento novamente!");
+				input[0].removeAttribute('onfocus');
+			}
+				
+			//onchange
+			onChangeFunction =()=>{		
+				alert("A opção selecionado foi: " + select[0].value);
+			}
+				
+			//onsubmit
+			onSubmitFunction =()=>{
+				alert("Os dados " + input[1].value + " foram enviados!" );
+			}
+				
+			//onkeydown
+			onKeyDownFunction =(event)=>{
+				alert("A tecla " + event.key + " foi pressionada");
+			}
+				
+			//onkeyup
+			onKeyUpFunction =(event)=>{
+				alert("A tecla " + event.key + " foi solta");
+			}
+				
+			//onmouseout
+			onMouseOutFunction =()=>{
+				let ns = Math.floor(Math.random() * 4);
+				tags[1].style.backgroundColor = gerarCorAleatoria[ns];
+				alert("OBS: o evento onmouseout está acionando a função onMouseOut, essa função troca a cor de fundo do elemento utilizando CSS");		
+			}
+				
+			//ondblclick
+			onDblclickFunction =()=>{
+				alert("O evento de clique duplo foi ativado.");		
+			}
+				
+			//onmousedown
+			onMouseDownFunction =()=>{
+				alert("O evento onmousedown foi ativado");	
+			}
+				
+			//onmouseup
+			onMouseUpFunction =()=>{
+				alert("O evento onmouseup foi ativado");		
+			}
+		</script>
+	</body>
+</html>
