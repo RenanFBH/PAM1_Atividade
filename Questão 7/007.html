@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Questão 7">
+		<meta name="keywords" content="HTML, JavaScript">
+		<meta name="author" content="Renan">
+	</head>
+	<body>
+		<div>
+			<form>
+				<input>
+				<button>Transformar em caixa alta</button>
+			</form>
+			<p></p>
+		</div>
+		<!-- JavaScript -->
+		<script>
+			window.onload = function() {
+				let btn = document.getElementsByTagName("button")[0];
+				let p = document.getElementsByTagName("p")[0]; 
+				
+				const caixaAlta = () => {
+					let vlipt = document.getElementsByTagName("input")[0].value;
+					return vlipt.toUpperCase();
+				}
+				
+				btn.onclick = function(event) {
+					event.preventDefault();      
+					p.innerHTML = caixaAlta();
+				}
+			}
+		</script>
+	</body>	
+</html>
